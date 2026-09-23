@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- 變身燃燒戰鬥力計算機 V0.6｜GitHub Pages 可直接使用：整份 index.html 覆蓋即可更新 -->
+<!-- 變身燃燒戰鬥力計算機 V1.0｜GitHub Pages 可直接使用：整份 index.html 覆蓋即可更新 -->
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
@@ -18,7 +18,11 @@ h1{font-size:30px;margin:0}.sub{color:var(--muted);font-size:14px;line-height:1.
 .tablewrap{overflow:auto;border:1px solid var(--line);border-radius:14px}table{border-collapse:collapse;width:100%;min-width:680px;background:#fff}th,td{padding:9px 10px;border-bottom:1px solid #eee8f4;text-align:right;font-size:13px;white-space:nowrap}th{background:#f6f0fc;color:#675a79;position:sticky;top:0;z-index:1}th:first-child,td:first-child{text-align:left}tr:last-child td{border-bottom:0}tr.highlight td{background:#f4ecff;font-weight:800}
 .compare{display:grid;grid-template-columns:1fr 32px 1fr;gap:10px;align-items:start}.arrow{text-align:center;font-size:25px;padding-top:46px;color:#8b6ab6}.statline{display:grid;grid-template-columns:1fr 88px;gap:6px;margin-top:5px}.status{display:inline-block;padding:4px 9px;border-radius:999px;font-size:12px;font-weight:800}.status.low{background:#f7e7ec;color:#a23c58}.status.try{background:#eef0ff;color:#6654b4}.status.ok{background:#e8f4ee;color:#28765b}.status.stable{background:#e1f4eb;color:#1f6d51}.status.phase3{background:#fff1df;color:#9a641f}.good{color:var(--good);font-weight:800}.bad{color:var(--bad);font-weight:800}
 .weaponbox{display:grid;grid-template-columns:1fr 34px 1fr;gap:12px;align-items:start}.weaponpane{border:1px solid #e6dcf2;border-radius:16px;background:#fff;padding:14px}.weaponmeta{margin-top:11px;padding-top:9px;border-top:1px solid #eee8f4;font-size:13px;line-height:1.9;color:#5f576e}.resultlines{font-size:13px;line-height:1.9;color:#5f576e;margin-top:12px;padding:10px 12px;border:1px dashed #ddd0ec;border-radius:13px;background:#faf8fc}.plainurl{margin-top:7px;padding:9px 11px;border:1px solid #e5daef;border-radius:10px;background:#faf8fc;color:#655d72;font-size:12px;word-break:break-all;user-select:text}.source{border:1px solid #e5daef;border-radius:16px;padding:14px;background:#fff;margin-top:10px}.source h3{margin:0;font-size:15px}
-.footer{margin-top:22px;text-align:center;color:#8d8598;font-size:12px}@media(max-width:800px){.card{grid-column:1/-1}.formgrid,.kpis{grid-template-columns:1fr}.compare,.weaponbox{grid-template-columns:1fr}.arrow{padding:0;transform:rotate(90deg)}h1{font-size:24px}}
+
+.footer{margin-top:22px;text-align:center;color:#8d8598;font-size:12px}
+.final-equip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.final-equip .equip{border:1px solid #e6dcf2;border-radius:15px;background:#fff;padding:13px 14px}.final-equip .equip b{display:block;font-size:14px}.final-equip .equip span{display:block;color:var(--muted);font-size:12px;margin-top:5px}.final-layout{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:14px;align-items:start}.final-rows{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}.final-head,.final-row{display:grid;grid-template-columns:48px 80px minmax(130px,1fr) 76px minmax(130px,1fr) 76px 132px;gap:7px;align-items:center}.final-head{padding:9px 10px;background:#f6f0fc;color:#675a79;font-size:12px;font-weight:700}.final-row{padding:8px 10px;border-top:1px solid #eee8f4}.final-row:first-child{border-top:0}.final-num{font-weight:800;color:#655d72}.final-score{text-align:right;font-weight:900;font-variant-numeric:tabular-nums;font-size:15px}.final-score.pos{color:var(--good)}.final-score.neg{color:var(--bad)}.final-score.mid{color:#7056a2}.final-result{position:sticky;top:12px}.final-stat{display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-bottom:1px solid #eee8f4;font-size:13px}.final-stat:last-child{border-bottom:0}.final-stat span{color:var(--muted)}.final-stat b{font-variant-numeric:tabular-nums}.final-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.final-info ol{margin:0;padding-left:22px;line-height:1.95;color:#5f576e}.final-info li{padding-left:2px}.final-info-small{margin-top:10px;padding-top:8px;border-top:1px dashed #ddd0ec;color:var(--muted);font-size:11px;line-height:1.65}.final-info-small ol{margin:0;padding-left:19px}.final-info-small li{padding-left:1px;margin:2px 0}.final-kpis{display:grid;grid-template-columns:1fr 1fr;gap:9px}.final-kpis .kpi:first-child{grid-column:1/-1}.quality-legendary{color:#a06b00}.quality-unique{color:#7d52ae}.quality-rare{color:#3b74ad}.quality-special{color:#2e8a68}
+@media(max-width:980px){.final-layout{grid-template-columns:1fr}.final-result{position:static}.final-head{display:none}.final-row{grid-template-columns:52px 82px 1fr 72px}.final-row .final-s2{grid-column:3}.final-row .final-v2{grid-column:4}.final-score{grid-column:3/5;text-align:left;padding:2px 0 4px}}
+@media(max-width:800px){.card{grid-column:1/-1}.formgrid,.kpis{grid-template-columns:1fr}.compare,.weaponbox{grid-template-columns:1fr}.arrow{padding:0;transform:rotate(90deg)}h1{font-size:24px}}
 </style>
 </head>
 <body>
@@ -28,6 +32,7 @@ h1{font-size:30px;margin:0}.sub{color:var(--muted);font-size:14px;line-height:1.
 <button class="tab active" data-page="quick">面板快速計算</button>
 <button class="tab" data-page="compare">結晶替換比較</button>
 <button class="tab" data-page="presets">新結晶比較</button>
+<button class="tab" data-page="final">最終戰力評估</button>
 <button class="tab" data-page="boss">Boss 通關倍率</button>
 <button class="tab" data-page="levels">各等級基礎能力</button>
 <button class="tab" data-page="sources">資料來源</button>
@@ -37,7 +42,7 @@ h1{font-size:30px;margin:0}.sub{color:var(--muted);font-size:14px;line-height:1.
 <div class="card"><h2>目前面板</h2><div class="formgrid">
 <div class="field"><label>露希妲等級</label><input id="qLevel" type="number" min="1" max="100" value="40"></div>
 <div class="field"><label>魔法攻擊力（最終顯示值）</label><input id="qMagic" type="number" min="0" value="2112"></div>
-<div class="field"><label>魔力 %</label><input id="qMagicPct" type="number" min="0" step="1" value="2"></div>
+<div class="field"><label>魔力%</label><input id="qMagicPct" type="number" min="0" step="1" value="2"></div>
 <div class="field"><label>熟練度 %</label><input id="qMastery" type="number" min="0" max="100" step="1" value="7"></div>
 <div class="field"><label>爆擊機率 %</label><input id="qCrit" type="number" min="0" max="100" step="1" value="55"></div>
 <div class="field"><label>爆擊傷害 %</label><input id="qCritDmg" type="number" min="100" step="1" value="142"></div>
@@ -51,8 +56,8 @@ h1{font-size:30px;margin:0}.sub{color:var(--muted);font-size:14px;line-height:1.
 <div class="kpi"><div class="label">目前通關倍率</div><div class="value" id="qPassage">—</div><div class="small" id="qPassageStatus">—</div></div>
 </div><h3 id="qProgressTitle">通關倍率</h3><div class="progress"><i id="qProgress" style="width:0%"></i></div><div class="note" id="qBossNote">—</div></div>
 
-<div class="card full"><h2>通關倍率／未來預期</h2><div class="formgrid" style="max-width:520px"><div class="field"><label>目標 Boss</label><select id="qBossTarget"><option value="auto">自動選擇下一目標</option><option value="vellum">混沌貝倫</option><option value="lucid">困難露希妲</option><option value="helena">普通赫麗娜</option><option value="nightmare">惡夢赫麗娜</option></select></div></div>
-<div class="note">角色低於 Boss 時每差1等最終傷害 -5%，最多減少50%；未來節點以10等為倍數。</div>
+<div class="card full"><h2>通關倍率／未來預期</h2><div class="formgrid" style="max-width:520px"><div class="field"><label>目標 Boss</label><select id="qBossTarget"><option value="auto">自動選擇下一目標</option><option value="vellum">混沌貝倫</option><option value="lucid">困難露希妲</option><option value="helena">普通赫麗娜</option><option value="nightmare">赫麗娜（夢魘）</option></select></div></div>
+<div class="note">角色低於 Boss 時每差1等最終傷害 -5%；未來節點以10等為倍數。</div>
 <div class="tablewrap" style="margin-top:12px"><table><thead><tr><th>等級</th><th>預估換算戰力</th><th>等差倍率</th><th>有效戰力</th><th>通關倍率</th><th>評估</th></tr></thead><tbody id="bossPreviewBody"></tbody></table></div></div>
 
 <div class="card full"><h2>目前面板：提升效益</h2><div class="note">提升量以罕見結晶的常用基準值計算；一次只增加一項，爆擊機率最高計算至100%。</div>
@@ -81,13 +86,40 @@ h1{font-size:30px;margin:0}.sub{color:var(--muted);font-size:14px;line-height:1.
 <div class="card full"><h2>罕傳結晶模板</h2><div class="tablewrap" style="margin-top:12px"><table><thead><tr><th>結晶模板</th><th>替換後戰力</th><th>戰力變化</th><th>差異</th></tr></thead><tbody id="presetBody"></tbody></table></div></div>
 </div></section>
 
+<section id="final" class="page"><div class="grid">
+<div class="card full"><h2>最終戰力評估</h2><div class="sub">以最終基礎能力為基礎，輸入目前持有結晶，預估最終轉換戰力與通關可能。</div></div>
+<div class="card full"><h2>最終基準裝備</h2><div class="final-equip" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+<div class="equip"><b>夢幻的傳令（武器）</b><div class="field" style="margin-top:8px"><label>傳說強化階段</label><select id="finalWeaponStar"></select></div></div>
+<div class="equip"><b>夢幻的根源（戒指）</b><div class="field" style="margin-top:8px"><label>傳說強化階段</label><select id="finalRootStar"></select></div></div>
+</div></div>
+<div class="card full"><div class="final-layout">
+<div><h2>持有結晶</h2><div class="final-rows"><div class="final-head"><div>#</div><div>階級</div><div>第一排</div><div>數值</div><div>第二排</div><div>數值</div><div style="text-align:right">結晶評分</div></div><div id="finalRows"></div></div>
+<div class="final-actions"><button class="btn" id="finalSave">儲存目前配置</button><button class="btn secondary" id="finalLoad">載入儲存內容</button><button class="btn soft" id="finalReset">重置</button></div></div>
+<div class="final-result"><h2>最終結果</h2><div class="final-kpis">
+<div class="kpi"><div class="label">最終換算戰力</div><div class="value" id="finalPower">—</div></div>
+<div class="kpi"><div class="label">106萬實例線</div><div class="value" id="final106">—</div></div>
+<div class="kpi"><div class="label">140萬一般參考</div><div class="value" id="final140">—</div></div>
+</div><div style="margin-top:12px">
+<div class="final-stat"><span>魔法攻擊力</span><b id="finalMagic">—</b></div>
+<div class="final-stat"><span>魔力%</span><b id="finalMagicPct">—</b></div>
+<div class="final-stat"><span>熟練度</span><b id="finalMastery">—</b></div>
+<div class="final-stat"><span>爆擊機率</span><b id="finalCrit">—</b></div>
+<div class="final-stat"><span>爆擊傷害</span><b id="finalCritDmg">—</b></div>
+<div class="final-stat"><span>冷卻時間減少</span><b id="finalCd">—</b></div>
+</div><div class="note" id="finalOverflow">—</div><div class="final-info-small"><ol>
+<li>預期可接受 2～4 顆考慮稀釋後 +0 級作為畢業結晶</li>
+<li>0 分約等於在目前選定的最終裝備階段下帶來 +5% 換算戰力增幅</li>
+</ol></div></div>
+</div></div>
+</div></section>
+
 <section id="boss" class="page"><div class="grid">
 <div class="card full"><h2>Boss 通關倍率總覽</h2><div class="note">95～99%為「可以嘗試挑戰」；120%以上為「相對穩定」。攻略參考用。</div><div class="tablewrap" style="margin-top:12px"><table><thead><tr><th>Boss</th><th>Boss LV</th><th>通關預期戰力需求</th><th>等差倍率</th><th>有效戰力</th><th>通關倍率</th><th>評估</th></tr></thead><tbody id="bossTableBody"></tbody></table></div></div>
 <div class="card full"><h2>採計標準</h2><div class="tablewrap"><table><thead><tr><th>Boss</th><th>採計標準</th><th>備註</th></tr></thead><tbody>
 <tr><td>混沌貝倫</td><td><b>80,800</b></td><td>—</td></tr>
 <tr><td>困難露希妲</td><td><b>400,000</b></td><td>355,000 為已知通關壓線門檻</td></tr>
 <tr><td>普通赫麗娜</td><td><b>550,000</b></td><td>—</td></tr>
-<tr><td>惡夢赫麗娜</td><td><b>1,500,000</b></td><td>LV100實測依打法約106～162萬，採150萬作一般實戰參考</td></tr>
+<tr><td>赫麗娜（夢魘）</td><td><b>1,400,000</b></td><td>LV100實測依打法約106～162萬，採140萬作一般實戰參考</td></tr>
 </tbody></table></div></div>
 </div></section>
 
@@ -100,7 +132,8 @@ h1{font-size:30px;margin:0}.sub{color:var(--muted);font-size:14px;line-height:1.
 <div class="source"><h3>韓國 Inven｜夢幻結晶最佳化計算器</h3><div class="plainurl">https://www.inven.co.kr/board/maple/2304/47221</div></div>
 <div class="source"><h3>Maple AI｜露希妲 Boss 最低戰力計算器</h3><div class="plainurl">https://maple.ai.kr/calculator/lucid-boss</div></div>
 <div class="source"><h3>韓國 Inven｜普通赫麗娜通關樣本</h3><div class="plainurl">https://www.inven.co.kr/board/maple/2304/47317</div></div>
-<div class="source"><h3>韓國 Inven｜惡夢赫麗娜攻略</h3><div class="plainurl">https://www.inven.co.kr/board/maple/2304/47485</div></div>
+<div class="source"><h3>韓國 Inven｜赫麗娜（夢魘）攻略</h3><div class="plainurl">https://www.inven.co.kr/board/maple/2304/47485</div></div>
+<div class="source"><h3>韓國 Inven｜赫麗娜（夢魘） LV93 通關紀錄</h3><div class="plainurl">https://www.inven.co.kr/board/maple/5974/6573353</div></div>
 <div class="source"><h3>台版遊戲實測資料</h3><div class="sub" style="margin-top:7px">LV33 基礎魔力 1254、LV40 基礎魔力 1711／基礎爆擊傷害 135%、LV42 基礎魔力 1837／基礎爆擊傷害 139%。</div></div>
 </div></div></section>
 <div class="footer">變身燃燒戰鬥力計算機</div>
@@ -111,12 +144,12 @@ const LEVELS={"1":{"magic":113,"critDmg":110},"2":{"magic":113,"critDmg":112},"3
 const CD_TIERS=[0, 1, 10, 20, 45];
 const CD_MATRIX={"0":[0.0,49397696.46773333,79807910.47733334,94230321.81653333,106206323.14986667],"1":[0.0,51494890.86622222,81884467.96222222,96294267.85422222,108270269.18755555],"2":[0.0,53922452.26618803,84288217.53880341,98683465.76095727,110659467.0942906],"3":[0.0,56762972.418,87100957.22999999,101479228.50400001,113455229.83733334],"4":[0.0,60129076.43579798,90434229.79434343,104792437.40234342,116768438.73567677],"5":[0.0,64178439.47937778,94444195.09377778,108778326.30257778,120754327.6359111],"6":[0.0,66431275.62975438,96674222.02385965,110994414.26470175,122970415.5980351],"7":[0.0,68940003.69807407,99157606.51407407,113462311.01274073,125438312.34607407],"8":[0.0,71749781.08162092,101939058.72209151,116226453.39126797,128202454.72460131],"9":[0.0,74917054.527,105074466.345,119342387.456,131318388.78933334]};
 const CD45_0=106206323.14986667;
-const BOSSES={vellum:{name:"混沌貝倫",level:30,ref:80800},lucid:{name:"困難露希妲",level:60,ref:400000},helena:{name:"普通赫麗娜",level:75,ref:550000},nightmare:{name:"惡夢赫麗娜",level:100,ref:1500000}};
+const BOSSES={vellum:{name:"混沌貝倫",level:30,ref:80800},lucid:{name:"困難露希妲",level:60,ref:400000},helena:{name:"普通赫麗娜",level:75,ref:550000},nightmare:{name:"赫麗娜（夢魘）",level:100,ref:1400000}};
 const RANKS={normal:{name:"普通",weapon:55,inc:0,slots:0},special:{name:"特殊",weapon:105,inc:25,slots:1},rare:{name:"稀有",weapon:280,inc:40,slots:2},unique:{name:"罕見",weapon:560,inc:55,slots:3},legendary:{name:"傳說",weapon:945,inc:75,slots:4}};
 const ENHANCE_RATE=[.95,.92,.88,.82,.75,.66,.56,.45,.35,.27,.20,.15];
 const ENHANCE_COST={special:[15,15,15,15,25,25,25,50,50,50,90,90],rare:[40,40,40,40,65,65,65,130,130,130,230,230],unique:[100,100,100,100,160,160,160,320,320,320,560,560],legendary:[250,250,250,250,400,400,400,800,800,800,1400,1400]};
 const DISMANTLE={normal:[5],special:[30,42,55,69,83,110,140,176,265,379,527,887,1367],rare:[80,113,148,184,223,293,371,464,695,993,1378,2298,3524],unique:[200,284,371,462,559,730,924,1152,1721,2453,3401,5641,8627],legendary:[500,710,927,1155,1399,1825,2310,2882,4304,6132,8503,14103,21569]};
-const STAT_OPTS=[["","—"],["magic","魔法攻擊力"],["magicPct","魔力 %"],["mastery","熟練度 %"],["crit","爆擊機率 %"],["critDmg","爆擊傷害 %"],["cd","技能冷卻時間減少（秒）"],["hp","HP"],["hpPct","HP %"]];
+const STAT_OPTS=[["","—"],["magic","魔法攻擊力"],["magicPct","魔力%"],["mastery","熟練度 %"],["crit","爆擊機率 %"],["critDmg","爆擊傷害 %"],["cd","技能冷卻時間減少（秒）"],["hp","HP"],["hpPct","HP %"]];
 const CRYSTAL_PRESETS=[
 {name:"罕見｜魔法攻擊力 +120／魔法攻擊力 +100",stats:{magic:220}},
 {name:"罕見｜爆擊機率 +13%／冷卻時間減少 -1秒",stats:{crit:13,cd:1}},
@@ -129,22 +162,39 @@ const CRYSTAL_PRESETS=[
 {name:"傳說｜魔法攻擊力 +350／最大 HP +300",stats:{magic:350,hp:300}},
 {name:"傳說｜爆擊機率 +14%／最大 HP +400",stats:{crit:14,hp:400}}
 ];
+const FINAL_QUALITY=[['special','特殊'],['rare','稀有'],['unique','罕見'],['legendary','傳說']];
+const FINAL_STAT_OPTS=[["","—"],["magic","魔法攻擊力"],["magicPct","魔力%"],["mastery","熟練度"],["crit","爆擊機率"],["critDmg","爆擊傷害"],["cd","冷卻時間減少"],["hp","最大HP"],["hpPct","最大HP%"]];
+const FINAL_DEFAULT=[
+['legendary','mastery',9,'critDmg',11],
+['legendary','magic',350,'hp',300],
+['legendary','crit',14,'crit',14],
+['unique','magic',120,'magic',100],
+['unique','crit',13,'cd',1],
+['unique','crit',11,'cd',1],
+['unique','crit',12,'magic',80],
+['unique','critDmg',7,'magic',80],
+['unique','crit',12,'magicPct',1],
+['unique','magic',140,'mastery',6],
+['unique','critDmg',8,'magicPct',2],
+['unique','cd',1,'magic',100]
+];
+let finalData=FINAL_DEFAULT.map(r=>r.slice());
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)], num=id=>Number($(id).value)||0;
 const fmt=n=>Math.round(n).toLocaleString("zh-TW"), pct=n=>`${n.toFixed(2)}%`;
 function clamp(v,a,b){return Math.min(b,Math.max(a,v))}
 function levelData(lv){lv=clamp(Math.round(Number(lv)||1),1,100);return lv<=90?LEVELS[String(lv)]:LEVELS["90"]}
 function tierIndex(lv){let idx=0;for(let i=0;i<CD_TIERS.length;i++)if(lv>=CD_TIERS[i])idx=i;return idx}
 function eqFactor(lv,cd){cd=clamp(Math.round(cd),0,9);return CD_MATRIX[String(cd)][tierIndex(lv)]/CD45_0}
-function calcFromPanel(s){const magic=Math.max(0,s.magic),mastery=clamp(s.mastery,0,100),crit=clamp(s.crit,0,100),critDmg=Math.max(100,s.critDmg),cd=clamp(Math.round(s.cd),0,9);const raw=magic*(45+mastery*.075)*(1+(crit/100)*(critDmg/100-1));const factor=eqFactor(s.level,cd);return {...s,magic,mastery,crit,critDmg,cd,raw,factor,eq:raw*factor}}
+function calcFromPanel(s){const magic=Math.max(0,s.magic),mastery=clamp(s.mastery,0,100),crit=clamp(s.crit,0,100),critDmg=Math.max(100,s.critDmg),cd=clamp(Math.round(s.cd),0,9);const raw=magic*(45+mastery*.075)*(1+(crit/100)*(critDmg/100-1));const idx=tierIndex(s.level),cdRatio=CD_MATRIX[String(cd)][idx]/CD_MATRIX["0"][idx],rawCd=raw*cdRatio,factor=eqFactor(s.level,cd);return {...s,magic,mastery,crit,critDmg,cd,raw,rawCd,factor,eq:raw*factor}}
 function quickState(){return calcFromPanel({level:clamp(num("#qLevel"),1,100),magic:num("#qMagic"),magicPct:num("#qMagicPct"),mastery:num("#qMastery"),crit:num("#qCrit"),critDmg:num("#qCritDmg"),cd:num("#qCd")})}
-function levelPenalty(player,boss){if(player>=boss)return 1;return Math.max(.5,1-.05*(boss-player))}
+function levelPenalty(player,boss){if(player>=boss)return 1;return Math.max(0,1-.05*(boss-player))}
 function autoBossKey(level){if(level<=30)return"vellum";if(level<=60)return"lucid";if(level<=75)return"helena";return"nightmare"}
 function previewBossKey(level){const v=$("#qBossTarget").value;return v==="auto"?autoBossKey(level):v}
 function genericStatus(r){if(r<95)return{text:"尚未達標",cls:"low"};if(r<100)return{text:"可以嘗試挑戰",cls:"try"};if(r<120)return{text:"達標",cls:"ok"};return{text:"相對穩定",cls:"stable"}}
 function passageFor(state,boss,key){const pen=levelPenalty(state.level,boss.level),effective=state.eq*pen,ratio=effective/boss.ref*100;let status=genericStatus(ratio);if(key==="lucid"){if(effective<360000)status={text:"尚未達標",cls:"low"};else if(effective<400000)status={text:"達標三階傷害門檻",cls:"phase3"}}return{pen,effective,ratio,status}}
 function projectStateAtLevel(base,targetLv){targetLv=clamp(Math.round(targetLv),1,100);const mp=Math.max(0,num("#qMagicPct"));const cur=levelData(base.level),tar=levelData(targetLv);const currentFlat=base.magic/(1+mp/100);const equipFlat=currentFlat-cur.magic;const magic=Math.floor((tar.magic+equipFlat)*(1+mp/100)+1e-9);const extraCritDmg=base.critDmg-cur.critDmg;return calcFromPanel({level:targetLv,magic,magicPct:mp,mastery:base.mastery,crit:base.crit,critDmg:tar.critDmg+extraCritDmg,cd:base.cd})}
 function nextTens(level){const n1=Math.min(100,Math.floor(level/10)*10+10),n2=Math.min(100,n1+10);const out=[level];if(n1!==level)out.push(n1);if(n2!==n1)out.push(n2);return out}
-function renderQuick(){const s=quickState();const lv45=calcFromPanel({...s,level:45});$("#qRaw").textContent=`${fmt(s.raw)}（${fmt(lv45.eq)}）`;$("#qLv45Note").textContent=`以 LV45 計算時戰力為 ${fmt(lv45.eq)}`;$("#qEq").textContent=fmt(s.eq);
+function renderQuick(){const s=quickState();const lv45=calcFromPanel({...s,level:45});$("#qRaw").textContent=`${fmt(s.rawCd)}（${fmt(lv45.eq)}）`;$("#qLv45Note").textContent=`以 LV45 計算時戰力為 ${fmt(lv45.eq)}`;$("#qEq").textContent=fmt(s.eq);
 const autoKey=autoBossKey(s.level),boss=BOSSES[autoKey],p=passageFor(s,boss,autoKey);$("#qTargetName").textContent=boss.name;$("#qTargetReq").textContent=`LV${boss.level}｜通關預期戰力需求 ${fmt(boss.ref)}`;$("#qPassage").textContent=pct(p.ratio);$("#qPassageStatus").innerHTML=`<span class="status ${p.status.cls}">${p.status.text}</span>`;$("#qProgressTitle").textContent=`${boss.name}｜通關倍率 ${pct(p.ratio)}`;$("#qProgress").style.width=`${Math.min(100,p.ratio)}%`;$("#qBossNote").innerHTML=`等差倍率 <b>${pct(p.pen*100)}</b>，等差修正後有效戰力 <b>${fmt(p.effective)}</b>。`;
 renderBossPreview();renderBossTable();renderMarginals();renderCdTable();renderGrowth();renderPresetCompare();renderCompare();renderWeaponCompare()}
 function inferFlatMagic(finalMagic,mp){return finalMagic/(1+mp/100)}
@@ -171,8 +221,23 @@ function dismantleValue(rank,star){const a=DISMANTLE[rank]||[0];return a[Math.mi
 function renderWeaponCompare(){if(!$("#weaponOldRank"))return;const oldRank=$("#weaponOldRank").value,newRank=$("#weaponNewRank").value,oldStar=Number($("#weaponOldStar").value)||0,newStar=Number($("#weaponNewStar").value)||0,oldM=weaponMagic(oldRank,oldStar),newM=weaponMagic(newRank,newStar),diff=newM-oldM,slotOld=RANKS[oldRank].slots,slotNew=RANKS[newRank].slots;$("#weaponOldMagic").textContent=fmt(oldM);$("#weaponNewMagic").textContent=fmt(newM);$("#weaponOldSlots").textContent=slotOld;$("#weaponNewSlots").textContent=slotNew;if(oldRank===newRank&&oldStar===newStar){$("#weaponLines").innerHTML=`武器不變｜魔力 <b>${fmt(oldM)}</b>｜結晶槽 <b>${slotOld}</b>`}else{const expected=Math.round(expectedEnhance(newRank,newStar)),refund=dismantleValue(oldRank,oldStar),net=expected-refund;const netLine=net>=0?`扣除回收後：預期額外花費 <b>${fmt(net)}</b> 碎片`:`扣除回收後：預期可剩餘 <b>${fmt(-net)}</b> 碎片`;$("#weaponLines").innerHTML=`武器魔力：<b>${fmt(oldM)} → ${fmt(newM)}（${diff>=0?'+':''}${fmt(diff)}）</b><br>${RANKS[newRank].name} +0 → +${newStar}：預期耗費 <b>${fmt(expected)}</b> 碎片<br>${netLine}<br>結晶槽：<b>${slotOld} → ${slotNew}（${slotNew-slotOld>=0?'+':''}${slotNew-slotOld}）</b>`}renderCompare()}
 function renderPresetCompare(){if(!$("#presetNewLines")||!$("#presetNewLines").children.length)return;const b=quickState(),neo=collectCompare($("#presetNewLines"));$("#presetBase").textContent=fmt(b.eq);$("#presetBody").innerHTML=CRYSTAL_PRESETS.map(p=>{const n=applyStatSwap(b,p.stats,neo,0),d=n.eq-b.eq,dp=b.eq?d/b.eq*100:0,cls=d>=0?'good':'bad',label=d>=0?'新結晶較強':'原結晶較強';return`<tr><td><b>${p.name}</b></td><td>${fmt(n.eq)}</td><td class="${cls}">${d>=0?'+':''}${fmt(d)}</td><td class="${cls}">${d>=0?'+':''}${dp.toFixed(2)}%｜${label}</td></tr>`}).join("")}
 function fillCompareHost(host,stats){const lines=[...host.querySelectorAll('.statline')];lines.forEach(x=>{x.querySelector('select').value='';x.querySelector('input').value=0});let i=0;for(const [k,v] of Object.entries(stats)){if(!v||i>=lines.length)continue;lines[i].querySelector('select').value=k;lines[i].querySelector('input').value=v;i++}}
-function bind(){$$(".tab").forEach(t=>t.onclick=()=>{$$(".tab,.page").forEach(x=>x.classList.remove("active"));t.classList.add("active");$("#"+t.dataset.page).classList.add("active")});["#qLevel","#qMagic","#qMagicPct","#qMastery","#qCrit","#qCritDmg","#qCd"].forEach(id=>$(id).addEventListener("input",renderQuick));$("#qBossTarget").addEventListener("input",renderBossPreview);$("#loadExample").onclick=()=>{$("#qLevel").value=40;$("#qMagic").value=2112;$("#qMagicPct").value=2;$("#qMastery").value=7;$("#qCrit").value=55;$("#qCritDmg").value=142;$("#qCd").value=1;renderQuick()};$("#saveQuick").onclick=()=>{localStorage.setItem("lucid-tms-quick-v06",JSON.stringify({level:num("#qLevel"),magic:num("#qMagic"),magicPct:num("#qMagicPct"),mastery:num("#qMastery"),crit:num("#qCrit"),critDmg:num("#qCritDmg"),cd:num("#qCd")}));$("#saveQuick").textContent="已儲存";setTimeout(()=>$("#saveQuick").textContent="儲存目前數值",900)};$("#loadLegend").onclick=()=>{fillCompareHost($("#oldLines"),{});fillCompareHost($("#newLines"),{crit:14,magicPct:3});renderCompare()};$("#clearCompare").onclick=()=>{fillCompareHost($("#oldLines"),{});fillCompareHost($("#newLines"),{});renderCompare()};$("#loadFriendLegend").onclick=()=>{fillCompareHost($("#presetNewLines"),{crit:14,magicPct:3});renderPresetCompare()};$("#clearPreset").onclick=()=>{fillCompareHost($("#presetNewLines"),{});renderPresetCompare()};
+function finalEmptyAgg(){return{magic:0,magicPct:0,mastery:0,crit:0,critDmg:0,cd:0}}
+function finalAddStat(a,k,v){v=Number(v)||0;if(k in a)a[k]+=v}
+function finalAggregate(skip=-1){const a=finalEmptyAgg();finalData.forEach((r,i)=>{if(i===skip)return;finalAddStat(a,r[1],r[2]);finalAddStat(a,r[3],r[4])});return a}
+function finalGearState(){const weaponStar=clamp(Number($('#finalWeaponStar')?.value)||8,8,12),rootStar=clamp(Number($('#finalRootStar')?.value)||4,4,12);return{weaponStar,rootStar,weaponMagic:weaponMagic('legendary',weaponStar),rootCrit:26+rootStar}}
+function finalCalc(a){const g=finalGearState(),baseMagic=6525+g.weaponMagic;const magic=Math.floor((baseMagic+a.magic)*(1+a.magicPct/100)+1e-9);const rawCrit=g.rootCrit+a.crit;const st=calcFromPanel({level:90,magic,magicPct:a.magicPct,mastery:a.mastery,crit:Math.min(100,rawCrit),critDmg:193+a.critDmg,cd:a.cd});return{...st,rawCrit,magicPct:a.magicPct,gear:g}}
+function finalQualityOptions(v){return FINAL_QUALITY.map(([k,n])=>`<option value="${k}" ${k===v?'selected':''}>${n}</option>`).join('')}
+function finalStatOptions(v){return FINAL_STAT_OPTS.map(([k,n])=>`<option value="${k}" ${k===v?'selected':''}>${n}</option>`).join('')}
+function finalSigned(n){return`${n>=0?'+':''}${n.toFixed(1)}`}
+function finalScoreClass(n){return n>=5?'pos':n>=0?'mid':'neg'}
+function renderFinalRows(){const host=$('#finalRows');if(!host)return;host.innerHTML='';finalData.forEach((r,i)=>{const row=document.createElement('div');row.className='final-row';row.innerHTML=`<div class="final-num">#${i+1}</div><select data-i="${i}" data-k="0">${finalQualityOptions(r[0])}</select><select data-i="${i}" data-k="1">${finalStatOptions(r[1])}</select><input data-i="${i}" data-k="2" type="number" step="1" value="${r[2]}"><select class="final-s2" data-i="${i}" data-k="3">${finalStatOptions(r[3])}</select><input class="final-v2" data-i="${i}" data-k="4" type="number" step="1" value="${r[4]}"><div class="final-score" id="finalScore${i}">—</div>`;host.appendChild(row)});host.querySelectorAll('select,input').forEach(el=>el.addEventListener('input',e=>{const i=Number(e.target.dataset.i),k=Number(e.target.dataset.k);finalData[i][k]=[0,1,3].includes(k)?e.target.value:Number(e.target.value)||0;renderFinal()}))}
+function renderFinal(){if(!$('#finalRows'))return;const zero=finalEmptyAgg(),base=finalCalc(zero),all=finalAggregate(),full=finalCalc(all);finalData.forEach((r,i)=>{const el=$(`#finalScore${i}`);if(!r[1]&&!r[3]){el.className='final-score';el.textContent='—';return}const one=finalEmptyAgg();finalAddStat(one,r[1],r[2]);finalAddStat(one,r[3],r[4]);const single=(finalCalc(one).eq/base.eq-1)*100;let scoreAll=all,scoreWithout=finalAggregate(i);if(one.crit>0&&full.rawCrit>105){const trim=full.rawCrit-105;scoreAll={...all,crit:Math.max(0,all.crit-trim)};scoreWithout={...scoreWithout,crit:Math.max(0,scoreAll.crit-one.crit)}}const scoreFull=finalCalc(scoreAll),without=finalCalc(scoreWithout);const marginal=(scoreFull.eq/without.eq-1)*100;const score=single-5,actual=marginal-5;el.className=`final-score ${finalScoreClass(actual)}`;el.textContent=`${finalSigned(score)}（${finalSigned(actual)}）`});$('#finalPower').textContent=fmt(full.eq);$('#final106').textContent=pct(full.eq/1060000*100);$('#final140').textContent=pct(full.eq/1400000*100);$('#finalMagic').textContent=fmt(full.magic);$('#finalMagicPct').textContent=`${full.magicPct.toFixed(0)}%`;$('#finalMastery').textContent=`${full.mastery.toFixed(0)}%`;$('#finalCrit').textContent=`${full.rawCrit.toFixed(0)}%${full.rawCrit>100?'（有效100%）':''}`;$('#finalCritDmg').textContent=`${full.critDmg.toFixed(0)}%`;$('#finalCd').textContent=`-${full.cd.toFixed(0)}秒`;const overflow=Math.max(0,full.rawCrit-100);$('#finalOverflow').innerHTML=overflow>0?`爆擊機率溢出 <b>${overflow.toFixed(0)}%</b>；括號內爆率評分最高按 105% 計。`:'目前沒有爆擊機率溢出；括號內評分照實際配置計算。'}
+function fillFinalGearStars(){const w=$('#finalWeaponStar'),r=$('#finalRootStar');if(!w||!r)return;w.innerHTML=Array.from({length:5},(_,i)=>`<option value="${i+8}">+${i+8}</option>`).join('');r.innerHTML=Array.from({length:9},(_,i)=>`<option value="${i+4}">+${i+4}</option>`).join('');w.value='8';r.value='4'}
+function clearFinal(){finalData=Array.from({length:12},()=>['unique','',0,'',0]);if($('#finalWeaponStar'))$('#finalWeaponStar').value='8';if($('#finalRootStar'))$('#finalRootStar').value='4';renderFinalRows();renderFinal()}
+function saveFinal(){localStorage.setItem('lucid-tms-final-v07',JSON.stringify(finalData));localStorage.setItem('lucid-tms-final-gear-v07',JSON.stringify({weaponStar:Number($('#finalWeaponStar')?.value)||8,rootStar:Number($('#finalRootStar')?.value)||4}));const b=$('#finalSave');b.textContent='已儲存';setTimeout(()=>b.textContent='儲存目前配置',900)}
+function loadFinal(){const b=$('#finalLoad');try{const raw=localStorage.getItem('lucid-tms-final-v07');const gear=JSON.parse(localStorage.getItem('lucid-tms-final-gear-v07')||'null');if(gear){if($('#finalWeaponStar'))$('#finalWeaponStar').value=String(clamp(Number(gear.weaponStar)||8,8,12));if($('#finalRootStar'))$('#finalRootStar').value=String(clamp(Number(gear.rootStar)||4,4,12));}if(!raw){b.textContent='尚無儲存內容';setTimeout(()=>b.textContent='載入儲存內容',1100);return}const v=JSON.parse(raw);if(Array.isArray(v)&&v.length===12){finalData=v.map(r=>Array.isArray(r)&&r.length===5?r.slice():['unique','',0,'',0]);renderFinalRows();renderFinal();b.textContent='已載入';setTimeout(()=>b.textContent='載入儲存內容',900)}}catch(e){b.textContent='載入失敗';setTimeout(()=>b.textContent='載入儲存內容',1100)}}
+function bind(){$$(".tab").forEach(t=>t.onclick=()=>{$$(".tab,.page").forEach(x=>x.classList.remove("active"));t.classList.add("active");$("#"+t.dataset.page).classList.add("active")});["#qLevel","#qMagic","#qMagicPct","#qMastery","#qCrit","#qCritDmg","#qCd"].forEach(id=>$(id).addEventListener("input",renderQuick));$("#qBossTarget").addEventListener("input",renderBossPreview);$("#loadExample").onclick=()=>{$("#qLevel").value=40;$("#qMagic").value=2112;$("#qMagicPct").value=2;$("#qMastery").value=7;$("#qCrit").value=55;$("#qCritDmg").value=142;$("#qCd").value=1;renderQuick()};$("#saveQuick").onclick=()=>{localStorage.setItem("lucid-tms-quick-v06",JSON.stringify({level:num("#qLevel"),magic:num("#qMagic"),magicPct:num("#qMagicPct"),mastery:num("#qMastery"),crit:num("#qCrit"),critDmg:num("#qCritDmg"),cd:num("#qCd")}));$("#saveQuick").textContent="已儲存";setTimeout(()=>$("#saveQuick").textContent="儲存目前數值",900)};$("#loadLegend").onclick=()=>{fillCompareHost($("#oldLines"),{});fillCompareHost($("#newLines"),{crit:14,magicPct:3});renderCompare()};$("#clearCompare").onclick=()=>{fillCompareHost($("#oldLines"),{});fillCompareHost($("#newLines"),{});renderCompare()};$("#loadFriendLegend").onclick=()=>{fillCompareHost($("#presetNewLines"),{crit:14,magicPct:3});renderPresetCompare()};$("#clearPreset").onclick=()=>{fillCompareHost($("#presetNewLines"),{});renderPresetCompare()};$("#finalSave").onclick=saveFinal;$("#finalLoad").onclick=loadFinal;$("#finalReset").onclick=clearFinal;$("#finalWeaponStar").addEventListener("input",renderFinal);$("#finalRootStar").addEventListener("input",renderFinal);
 $("#weaponOldRank").addEventListener("input",()=>{refreshStarOptions($("#weaponOldRank"),$("#weaponOldStar"));renderWeaponCompare()});$("#weaponNewRank").addEventListener("input",()=>{refreshStarOptions($("#weaponNewRank"),$("#weaponNewStar"));renderWeaponCompare()});$("#weaponOldStar").addEventListener("input",renderWeaponCompare);$("#weaponNewStar").addEventListener("input",renderWeaponCompare)}
-makeCompareLines($("#oldLines"));makeCompareLines($("#newLines"));makeCompareLines($("#presetNewLines"),renderPresetCompare);fillCompareHost($("#presetNewLines"),{crit:14,magicPct:3});fillWeaponRanks();renderLevels();bind();try{const s=JSON.parse(localStorage.getItem("lucid-tms-quick-v06")||localStorage.getItem("lucid-tms-quick-v05"));if(s){$("#qLevel").value=s.level;$("#qMagic").value=s.magic;$("#qMagicPct").value=s.magicPct??2;$("#qMastery").value=s.mastery;$("#qCrit").value=s.crit;$("#qCritDmg").value=s.critDmg;$("#qCd").value=s.cd}}catch(e){}renderQuick();renderPresetCompare();
+makeCompareLines($("#oldLines"));makeCompareLines($("#newLines"));makeCompareLines($("#presetNewLines"),renderPresetCompare);fillCompareHost($("#presetNewLines"),{crit:14,magicPct:3});fillWeaponRanks();fillFinalGearStars();renderLevels();renderFinalRows();bind();try{const s=JSON.parse(localStorage.getItem("lucid-tms-quick-v06")||localStorage.getItem("lucid-tms-quick-v05"));if(s){$("#qLevel").value=s.level;$("#qMagic").value=s.magic;$("#qMagicPct").value=s.magicPct??2;$("#qMastery").value=s.mastery;$("#qCrit").value=s.crit;$("#qCritDmg").value=s.critDmg;$("#qCd").value=s.cd}}catch(e){}renderQuick();renderPresetCompare();renderFinal();
 </script>
 </body></html>
