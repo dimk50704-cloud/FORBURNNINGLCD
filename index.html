@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- 變身燃燒戰鬥力計算機 V1.1｜GitHub Pages 可直接使用：整份 index.html 覆蓋即可更新 -->
+<!-- 變身燃燒戰鬥力計算機 V1.11｜GitHub Pages 可直接使用：整份 index.html 覆蓋即可更新 -->
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
@@ -14,6 +14,7 @@ h1{font-size:30px;margin:0}.sub{color:var(--muted);font-size:14px;line-height:1.
 .formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 12px}.field label{display:block;font-size:12px;color:var(--muted);margin:0 0 5px}input,select{width:100%;border:1px solid #dcd0eb;background:#fff;color:var(--ink);border-radius:11px;padding:9px 10px;font:inherit;outline:none}input:focus,select:focus{border-color:#9b79cf;box-shadow:0 0 0 3px rgba(142,94,201,.10)}
 .btnrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}button{font:inherit}.btn{border:0;border-radius:11px;padding:9px 13px;cursor:pointer;font-weight:700;background:#8058c8;color:#fff}.btn.secondary{background:#fff;color:#6f5591;border:1px solid #d8c9e9}.btn.soft{background:#eee6f9;color:#6a4f8b}
 .kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.kpi{padding:14px;border-radius:15px;background:linear-gradient(145deg,#faf7ff,#fff);border:1px solid #e6dcf2}.kpi .label{font-size:12px;color:var(--muted)}.kpi .value{font-size:25px;font-weight:900;margin-top:3px;letter-spacing:-.5px}.kpi .small{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.55}
+#qRaw{font-size:clamp(16px,1.7vw,22px);white-space:nowrap;font-variant-numeric:tabular-nums}
 .progress{height:10px;background:#eee8f4;border-radius:99px;overflow:hidden;margin-top:8px}.progress>i{display:block;height:100%;background:linear-gradient(90deg,#8d62d2,#75a8e4);border-radius:99px}.note{font-size:12px;line-height:1.7;color:var(--muted);background:#faf8fc;border:1px dashed #ddd0ec;border-radius:13px;padding:10px 12px;margin-top:12px}
 .tablewrap{overflow:auto;border:1px solid var(--line);border-radius:14px}table{border-collapse:collapse;width:100%;min-width:680px;background:#fff}th,td{padding:9px 10px;border-bottom:1px solid #eee8f4;text-align:right;font-size:13px;white-space:nowrap}th{background:#f6f0fc;color:#675a79;position:sticky;top:0;z-index:1}th:first-child,td:first-child{text-align:left}tr:last-child td{border-bottom:0}tr.highlight td{background:#f4ecff;font-weight:800}
 .compare{display:grid;grid-template-columns:1fr 32px 1fr;gap:10px;align-items:start}.arrow{text-align:center;font-size:25px;padding-top:46px;color:#8b6ab6}.statline{display:grid;grid-template-columns:1fr 88px;gap:6px;margin-top:5px}.status{display:inline-block;padding:4px 9px;border-radius:999px;font-size:12px;font-weight:800}.status.low{background:#f7e7ec;color:#a23c58}.status.try{background:#eef0ff;color:#6654b4}.status.ok{background:#e8f4ee;color:#28765b}.status.stable{background:#e1f4eb;color:#1f6d51}.status.phase3{background:#fff1df;color:#9a641f}.good{color:var(--good);font-weight:800}.bad{color:var(--bad);font-weight:800}
@@ -50,7 +51,7 @@ h1{font-size:30px;margin:0}.sub{color:var(--muted);font-size:14px;line-height:1.
 </div><div class="btnrow"><button class="btn" id="loadExample">載入 LV40 範例</button><button class="btn secondary" id="saveQuick">儲存目前數值</button><button class="btn soft" id="loadQuick">載入儲存內容</button></div></div>
 
 <div class="card"><h2>計算結果</h2><div class="kpis">
-<div class="kpi"><div class="label">原始戰鬥力</div><div class="value" id="qRaw">—</div><div class="small" id="qLv45Note">—</div></div>
+<div class="kpi"><div class="label">原始戰鬥力</div><div class="value" id="qRaw">—</div><div class="small" id="qLv45Note">—</div><div class="small" id="qNoCdEq">—</div></div>
 <div class="kpi"><div class="label">換算戰鬥力</div><div class="value" id="qEq">—</div><div class="small">依據等級、冷卻時間減少情況計算的實際轉換值</div></div>
 <div class="kpi"><div class="label">下一目標 Boss</div><div class="value" id="qTargetName" style="font-size:20px">—</div><div class="small" id="qTargetReq">—</div></div>
 <div class="kpi"><div class="label">目前通關倍率</div><div class="value" id="qPassage">—</div><div class="small" id="qPassageStatus">—</div></div>
@@ -136,7 +137,7 @@ h1{font-size:30px;margin:0}.sub{color:var(--muted);font-size:14px;line-height:1.
 <div class="source"><h3>韓國 Inven｜赫麗娜（夢魘） LV93 通關紀錄</h3><div class="plainurl">https://www.inven.co.kr/board/maple/5974/6573353</div></div>
 <div class="source"><h3>台版遊戲實測資料</h3><div class="sub" style="margin-top:7px">LV33 基礎魔力 1254、LV40 基礎魔力 1711／基礎爆擊傷害 135%、LV42 基礎魔力 1837／基礎爆擊傷害 139%。</div></div>
 </div></div></section>
-<div class="footer"><div>變身燃燒戰鬥力計算機</div><div class="footer-meta">版本 V1.1｜最後更新：2026-09-24</div></div>
+<div class="footer"><div>變身燃燒戰鬥力計算機</div><div class="footer-meta">版本 V1.11｜最後更新：2026-09-24</div></div>
 </div>
 
 <script>
@@ -194,7 +195,7 @@ function genericStatus(r){if(r<90)return{text:"尚未達標",cls:"low"};if(r<100
 function passageFor(state,boss,key){const pen=levelPenalty(state.level,boss.level),effective=state.eq*pen,ratio=effective/boss.ref*100;const status=genericStatus(ratio);return{pen,effective,ratio,status}}
 function projectStateAtLevel(base,targetLv){targetLv=clamp(Math.round(targetLv),1,100);const mp=Math.max(0,num("#qMagicPct"));const cur=levelData(base.level),tar=levelData(targetLv);const currentFlat=base.magic/(1+mp/100);const equipFlat=currentFlat-cur.magic;const magic=Math.floor((tar.magic+equipFlat)*(1+mp/100)+1e-9);const extraCritDmg=base.critDmg-cur.critDmg;return calcFromPanel({level:targetLv,magic,magicPct:mp,mastery:base.mastery,crit:base.crit,critDmg:tar.critDmg+extraCritDmg,cd:base.cd})}
 function nextTens(level){const n1=Math.min(100,Math.floor(level/10)*10+10),n2=Math.min(100,n1+10);const out=[level];if(n1!==level)out.push(n1);if(n2!==n1)out.push(n2);return out}
-function renderQuick(){const s=quickState();const lv45=calcFromPanel({...s,level:45});$("#qRaw").textContent=`${fmt(s.rawCd)}（${fmt(lv45.eq)}）`;$("#qLv45Note").textContent=`以 LV45 計算時戰力為 ${fmt(lv45.eq)}`;$("#qEq").textContent=fmt(s.eq);
+function renderQuick(){const s=quickState();const lv45=calcFromPanel({...s,level:45});const noCdEq=s.raw*eqFactor(s.level,0);$("#qRaw").textContent=`${fmt(s.rawCd)}（${fmt(lv45.eq)}）`;$("#qLv45Note").textContent=`以 LV45 計算時戰力為 ${fmt(lv45.eq)}`;$("#qNoCdEq").textContent=`無 CD 加權轉換戰力：${fmt(noCdEq)}`;$("#qEq").textContent=fmt(s.eq);
 const autoKey=autoBossKey(s.level),boss=BOSSES[autoKey],p=passageFor(s,boss,autoKey);$("#qTargetName").textContent=boss.name;$("#qTargetReq").textContent=`LV${boss.level}｜通關預期戰力需求 ${fmt(boss.ref)}`;$("#qPassage").textContent=pct(p.ratio);$("#qPassageStatus").innerHTML=`<span class="status ${p.status.cls}">${p.status.text}</span>`;$("#qProgressTitle").textContent=`${boss.name}｜通關倍率 ${pct(p.ratio)}`;$("#qProgress").style.width=`${Math.min(100,p.ratio)}%`;$("#qBossNote").innerHTML=`等差倍率 <b>${pct(p.pen*100)}</b>，等差修正後有效戰力 <b>${fmt(p.effective)}</b>。`;
 renderBossPreview();renderBossTable();renderMarginals();renderCdTable();renderGrowth();renderPresetCompare();renderCompare();renderWeaponCompare()}
 function inferFlatMagic(finalMagic,mp){return finalMagic/(1+mp/100)}
