@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- 變身燃燒戰鬥力計算機 V1.51｜GitHub Pages 可直接使用：整份 index.html 覆蓋即可更新 -->
+<!-- 變身燃燒戰鬥力計算機 V1.6｜GitHub Pages 可直接使用：整份 index.html 覆蓋即可更新 -->
 <html lang="zh-Hant">
   <head>
     <meta charset="utf-8" />
@@ -533,6 +533,9 @@
         gap: 18px;
         align-items: start;
       }
+      .opt-layout > .card {
+        grid-column: auto;
+      }
       .opt-heading,
       .opt-actions {
         display: flex;
@@ -543,7 +546,35 @@
       }
       .opt-table select,
       .opt-table input {
-        min-width: 92px;
+        width: 100%;
+        min-width: 0;
+      }
+      .opt-table {
+        min-width: 720px;
+        table-layout: fixed;
+      }
+      .opt-table .opt-quality {
+        min-width: 76px;
+      }
+      .opt-table .opt-value {
+        width: 68px;
+        min-width: 58px;
+        text-align: center;
+      }
+      .opt-crystal-score {
+        text-align: right;
+        white-space: nowrap;
+        font-weight: 900;
+        font-variant-numeric: tabular-nums;
+      }
+      .opt-crystal-score.pos {
+        color: var(--good);
+      }
+      .opt-crystal-score.mid {
+        color: #7056a2;
+      }
+      .opt-crystal-score.neg {
+        color: var(--bad);
       }
       .opt-num {
         width: 58px;
@@ -651,10 +682,10 @@
       <section class="hero"><h1>變身燃燒戰鬥力計算機</h1></section>
       <nav class="tabs">
         <button class="tab active" data-page="quick">面板快速計算</button>
-        <button class="tab" data-page="compare">結晶替換比較</button>
-        <button class="tab" data-page="presets">新結晶比較</button>
-        <button class="tab" data-page="final">最終戰力評估</button>
         <button class="tab" data-page="optimizer">結晶最佳化</button>
+        <button class="tab" data-page="presets">新結晶比較</button>
+        <button class="tab" data-page="compare">結晶替換比較</button>
+        <button class="tab" data-page="final">最終戰力評估</button>
         <button class="tab" data-page="boss">Boss 通關倍率</button>
         <button class="tab" data-page="levels">各等級基礎能力</button>
         <button class="tab" data-page="sources">資料來源</button>
@@ -672,12 +703,12 @@
                   type="number"
                   min="1"
                   max="100"
-                  value="40"
+                  value="80"
                 />
               </div>
               <div class="field">
                 <label>魔法攻擊力（最終顯示值）</label
-                ><input id="qMagic" type="number" min="0" value="2112" />
+                ><input id="qMagic" type="number" min="0" value="7016" />
               </div>
               <div class="field">
                 <label>魔力%</label
@@ -686,7 +717,7 @@
                   type="number"
                   min="0"
                   step="1"
-                  value="2"
+                  value="4"
                 />
               </div>
               <div class="field">
@@ -697,7 +728,7 @@
                   min="0"
                   max="100"
                   step="1"
-                  value="7"
+                  value="12"
                 />
               </div>
               <div class="field">
@@ -708,7 +739,7 @@
                   min="0"
                   max="100"
                   step="1"
-                  value="55"
+                  value="100"
                 />
               </div>
               <div class="field">
@@ -718,7 +749,7 @@
                   type="number"
                   min="100"
                   step="1"
-                  value="142"
+                  value="218"
                 />
               </div>
               <div class="field">
@@ -729,12 +760,12 @@
                   min="0"
                   max="9"
                   step="1"
-                  value="1"
+                  value="3"
                 />
               </div>
             </div>
             <div class="btnrow">
-              <button class="btn" id="loadExample">載入 LV40 範例</button
+              <button class="btn" id="loadLv80Example">載入 LV80／75萬範例</button
               ><button class="btn secondary" id="saveQuick">儲存目前數值</button
               ><button class="btn soft" id="loadQuick">載入儲存內容</button>
             </div>
@@ -987,6 +1018,7 @@
                 <thead>
                   <tr>
                     <th>結晶模板</th>
+                    <th>結晶評分</th>
                     <th>替換後戰力</th>
                     <th>戰力變化</th>
                     <th>差異</th>
@@ -1144,14 +1176,24 @@
             <div class="muted" id="optStatus">請按「進行計算」選出最佳配置。</div>
             <div class="tablewrap" style="margin-top: 12px">
               <table class="opt-table">
+                <colgroup>
+                  <col style="width: 44px" />
+                  <col style="width: 80px" />
+                  <col style="width: 150px" />
+                  <col style="width: 66px" />
+                  <col style="width: 150px" />
+                  <col style="width: 66px" />
+                  <col style="width: 135px" />
+                </colgroup>
                 <thead>
                   <tr>
-                    <th>#</th><th>階級</th><th>第一排</th><th>數值</th><th>第二排</th><th>數值</th>
+                    <th>#</th><th>階級</th><th>第一排</th><th>數值</th><th>第二排</th><th>數值</th><th style="text-align:right">結晶評分</th>
                   </tr>
                 </thead>
                 <tbody id="optRows"></tbody>
               </table>
             </div>
+            <p class="muted">評分顯示為「原始評分（依最佳配置計算的實際評分）」；資料變更後請重新計算，括號內評分會同步更新。</p>
           </div>
           <div class="card opt-result">
             <h2>最終結果</h2>
@@ -1342,7 +1384,7 @@
       </section>
       <div class="footer">
         <div>變身燃燒戰鬥力計算機</div>
-        <div class="footer-meta">版本 V1.51｜最後更新：2026-10-03</div>
+        <div class="footer-meta">版本 V1.6｜最後更新：2026-10-25</div>
       </div>
     </div>
 
@@ -1534,41 +1576,52 @@
       ];
       const CRYSTAL_PRESETS = [
         {
-          name: "罕見｜魔法攻擊力 +120／魔法攻擊力 +100",
-          stats: { magic: 220 },
+          name: "傳說｜魔法攻擊力 +300／熟練度 +8%",
+          stats: { magic: 300, mastery: 8 },
         },
         {
-          name: "罕見｜爆擊機率 +13%／冷卻時間減少 -1秒",
-          stats: { crit: 13, cd: 1 },
+          name: "傳說｜爆擊機率 +15%／爆擊傷害 +10%",
+          stats: { crit: 15, critDmg: 10 },
         },
         {
-          name: "罕見｜爆擊機率 +11%／冷卻時間減少 -1秒",
-          stats: { crit: 11, cd: 1 },
+          name: "傳說｜魔力 +4%／魔力 +4%",
+          stats: { magicPct: 8 },
         },
         {
-          name: "罕見｜爆擊機率 +12%／魔法攻擊力 +80",
-          stats: { crit: 12, magic: 80 },
+          name: "傳說｜冷卻時間減少 -2秒／魔法攻擊力 +450",
+          stats: { cd: 2, magic: 450 },
         },
         {
-          name: "罕見｜爆擊傷害 +7%／魔法攻擊力 +80",
-          stats: { critDmg: 7, magic: 80 },
+          name: "傳說｜爆擊機率 +14%／熟練度 +10%",
+          stats: { crit: 14, mastery: 10 },
         },
         {
-          name: "罕見｜爆擊機率 +12%／魔力 +1%",
-          stats: { crit: 12, magicPct: 1 },
-        },
-        { name: "罕見｜爆擊傷害 +9%／最大 HP", stats: { critDmg: 9, hp: 1 } },
-        {
-          name: "罕見｜魔法攻擊力 +120／最大 HP",
-          stats: { magic: 120, hp: 1 },
+          name: "傳說｜爆擊機率 +14%／爆擊傷害 +11%",
+          stats: { crit: 14, critDmg: 11 },
         },
         {
-          name: "傳說｜魔法攻擊力 +350／最大 HP +300",
-          stats: { magic: 350, hp: 300 },
+          name: "傳說｜冷卻時間減少 -2秒／爆擊機率 +15%",
+          stats: { cd: 2, crit: 15 },
         },
         {
-          name: "傳說｜爆擊機率 +14%／最大 HP +400",
-          stats: { crit: 14, hp: 400 },
+          name: "傳說｜爆擊機率 +14%／魔法攻擊力 +500",
+          stats: { crit: 14, magic: 500 },
+        },
+        {
+          name: "罕見｜冷卻時間減少 -1秒／爆擊傷害 +8%",
+          stats: { cd: 1, critDmg: 8 },
+        },
+        {
+          name: "罕見｜爆擊機率 +13%／爆擊傷害 +7%",
+          stats: { crit: 13, critDmg: 7 },
+        },
+        {
+          name: "罕見｜冷卻時間減少 -1秒／爆擊機率 +11%",
+          stats: { cd: 1, crit: 11 },
+        },
+        {
+          name: "罕見｜爆擊傷害 +7%／爆擊傷害 +7%",
+          stats: { critDmg: 14 },
         },
       ];
       const FINAL_QUALITY = [
@@ -1863,7 +1916,7 @@
           idx = tierIndex(lv),
           base = CD_MATRIX["0"][idx],
           rows = [];
-        for (let cd = 0; cd <= 6; cd++) {
+        for (let cd = 0; cd <= 9; cd++) {
           const v = CD_MATRIX[String(cd)][idx],
             cum = (v / base - 1) * 100;
           let edge = "—";
@@ -1872,7 +1925,7 @@
             edge = `+${((v / prev - 1) * 100).toFixed(2)}%`;
           }
           rows.push(
-            `<tr${cd === Math.min(6, Math.round(num("#qCd"))) ? ' class="highlight"' : ""}><td><b>-${cd}秒</b></td><td>× ${(v / CD45_0).toFixed(4)}</td><td>${edge}</td><td>${cd === 0 ? "—" : `+${cum.toFixed(2)}%`}</td></tr>`,
+            `<tr${cd === Math.min(9, Math.round(num("#qCd"))) ? ' class="highlight"' : ""}><td><b>-${cd}秒</b></td><td>× ${(v / CD45_0).toFixed(4)}</td><td>${edge}</td><td>${cd === 0 ? "—" : `+${cum.toFixed(2)}%`}</td></tr>`,
           );
         }
         $("#cdBody").innerHTML = rows.join("");
@@ -1976,8 +2029,17 @@
         });
         return t;
       }
-      function applyStatSwap(base, old, neo, weaponDiff = 0) {
-        const mp = Math.max(0, num("#qMagicPct")),
+      function applyStatSwap(
+        base,
+        old,
+        neo,
+        weaponDiff = 0,
+        panelMagicPct = null,
+      ) {
+        const mp = Math.max(
+            0,
+            panelMagicPct === null ? num("#qMagicPct") : panelMagicPct,
+          ),
           flat = inferFlatMagic(base.magic, mp);
         const newMp = Math.max(
           0,
@@ -2094,14 +2156,28 @@
           return;
         const b = quickState(),
           neo = collectCompare($("#presetNewLines"));
+        const rawBase = calcFromPanel({
+          level: 90,
+          magic: 6525 + weaponMagic("legendary", 8),
+          magicPct: 0,
+          mastery: 0,
+          crit: 30,
+          critDmg: 193,
+          cd: 0,
+        });
         $("#presetBase").textContent = fmt(b.eq);
         $("#presetBody").innerHTML = CRYSTAL_PRESETS.map((p) => {
           const n = applyStatSwap(b, p.stats, neo, 0),
             d = n.eq - b.eq,
             dp = b.eq ? (d / b.eq) * 100 : 0,
+            rawWith = applyStatSwap(rawBase, {}, p.stats, 0, 0),
+            rawScore = (rawWith.eq / rawBase.eq - 1) * 100 - 5,
+            without = applyStatSwap(b, p.stats, {}, 0),
+            actualScore = (b.eq / without.eq - 1) * 100 - 5,
             cls = d >= 0 ? "good" : "bad",
+            scoreCls = finalScoreClass(actualScore),
             label = d >= 0 ? "新結晶較強" : "原結晶較強";
-          return `<tr><td><b>${p.name}</b></td><td>${fmt(n.eq)}</td><td class="${cls}">${d >= 0 ? "+" : ""}${fmt(d)}</td><td class="${cls}">${d >= 0 ? "+" : ""}${dp.toFixed(2)}%｜${label}</td></tr>`;
+          return `<tr><td><b>${p.name}</b></td><td class="final-score ${scoreCls}">${finalSigned(rawScore)}（${finalSigned(actualScore)}）</td><td>${fmt(n.eq)}</td><td class="${cls}">${d >= 0 ? "+" : ""}${fmt(d)}</td><td class="${cls}">${d >= 0 ? "+" : ""}${dp.toFixed(2)}%｜${label}</td></tr>`;
         }).join("");
       }
       function fillCompareHost(host, stats) {
@@ -2356,14 +2432,14 @@
           "#qCd",
         ].forEach((id) => $(id).addEventListener("input", renderQuick));
         $("#qBossTarget").addEventListener("input", renderBossPreview);
-        $("#loadExample").onclick = () => {
-          $("#qLevel").value = 40;
-          $("#qMagic").value = 2112;
-          $("#qMagicPct").value = 2;
-          $("#qMastery").value = 7;
-          $("#qCrit").value = 55;
-          $("#qCritDmg").value = 142;
-          $("#qCd").value = 1;
+        $("#loadLv80Example").onclick = () => {
+          $("#qLevel").value = 80;
+          $("#qMagic").value = 7016;
+          $("#qMagicPct").value = 4;
+          $("#qMastery").value = 12;
+          $("#qCrit").value = 100;
+          $("#qCritDmg").value = 218;
+          $("#qCd").value = 3;
           renderQuick();
         };
         $("#saveQuick").onclick = () => {
@@ -2395,13 +2471,13 @@
               setTimeout(() => (b.textContent = "載入儲存內容"), 1100);
               return;
             }
-            $("#qLevel").value = s.level ?? 40;
-            $("#qMagic").value = s.magic ?? 2112;
-            $("#qMagicPct").value = s.magicPct ?? 2;
-            $("#qMastery").value = s.mastery ?? 7;
-            $("#qCrit").value = s.crit ?? 55;
-            $("#qCritDmg").value = s.critDmg ?? 142;
-            $("#qCd").value = s.cd ?? 1;
+            $("#qLevel").value = s.level ?? 80;
+            $("#qMagic").value = s.magic ?? 7016;
+            $("#qMagicPct").value = s.magicPct ?? 4;
+            $("#qMastery").value = s.mastery ?? 12;
+            $("#qCrit").value = s.crit ?? 100;
+            $("#qCritDmg").value = s.critDmg ?? 218;
+            $("#qCd").value = s.cd ?? 3;
             renderQuick();
             b.textContent = "已載入";
             setTimeout(() => (b.textContent = "載入儲存內容"), 900);
@@ -2483,11 +2559,20 @@
           ["mp", "魔攻%", 2, 4],
           ["cd", "冷卻時間減少", 2, 2],
         ];
-        const storageKey = "lucid-tms-optimizer-v15";
-        let crystals = Array.from({ length: 24 }, () => [
-          { type: "", value: 0 },
-          { type: "", value: 0 },
-        ]);
+        const storageKey = "lucid-tms-optimizer-v16";
+        const legacyStorageKey = "lucid-tms-optimizer-v15";
+        const scoreCdRatios = [
+          1, 1.0194, 1.041929179095487, 1.0683, 1.0994, 1.137,
+          1.1578, 1.1811, 1.2071, 1.2364,
+        ];
+        function blankCrystal() {
+          return [
+            { type: "", value: 0 },
+            { type: "", value: 0 },
+          ];
+        }
+        let crystals = Array.from({ length: 24 }, () => blankCrystal());
+        let qualities = Array(24).fill("legendary");
         let worker = null;
         const opt = (id) => document.getElementById(id);
         opt("optLevel").innerHTML = Array.from(
@@ -2520,16 +2605,24 @@
             )
             .join("");
         }
+        function qualityOptions(value) {
+          return FINAL_QUALITY.filter(([key]) =>
+            ["unique", "legendary"].includes(key),
+          ).map(
+            ([key, name]) =>
+              `<option value="${key}" ${key === value ? "selected" : ""}>${name}</option>`,
+          ).join("");
+        }
         function renderRows() {
           opt("optRows").innerHTML = crystals
             .map(
               (c, i) =>
-                `<tr><td class="opt-num" id="optNum${i}">#${i + 1}</td><td>傳說</td>${c
+                `<tr><td class="opt-num" id="optNum${i}">#${i + 1}</td><td><select class="opt-quality" data-i="${i}" data-k="quality">${qualityOptions(qualities[i])}</select></td>${c
                   .map(
                     (line, j) =>
-                      `<td><select data-i="${i}" data-j="${j}" data-k="type">${typeOptions(line.type)}</select></td><td><input type="number" min="0" step="any" data-i="${i}" data-j="${j}" data-k="value" value="${line.value}"></td>`,
+                      `<td><select data-i="${i}" data-j="${j}" data-k="type">${typeOptions(line.type)}</select></td><td><input class="opt-value" type="number" min="0" step="any" data-i="${i}" data-j="${j}" data-k="value" value="${line.value}"></td>`,
                   )
-                  .join("")}</tr>`,
+                  .join("")}<td class="opt-crystal-score" id="optScore${i}">—</td></tr>`,
             )
             .join("");
         }
@@ -2552,6 +2645,7 @@
           opt("optStats").innerHTML = "";
           opt("optScores").innerHTML = "";
           opt("optStatus").textContent = message;
+          renderRowScores();
         }
         function baseState() {
           const level = Number(opt("optLevel").value);
@@ -2581,6 +2675,77 @@
             crit: 26 + rootStar,
             dmg: 193,
           };
+        }
+        function crystalVector(lines) {
+          const keys = [
+            "magic",
+            "mp",
+            "mastery",
+            "crit",
+            "dmg",
+            "hp",
+            "hpp",
+            "cd",
+          ];
+          return keys.map((key) =>
+            lines.reduce(
+              (sum, line) =>
+                sum + (line.type === key ? Number(line.value) || 0 : 0),
+              0,
+            ),
+          );
+        }
+        function vectorActive(v) {
+          return v.some((value) => value > 0);
+        }
+        function scorePower(base, sum) {
+          const magic = Math.floor(
+            (base.magic + sum[0]) * (1 + sum[1] / 100) + 1e-9,
+          );
+          const crit = Math.min(100, base.crit + sum[3]) / 100;
+          const dmg = (base.dmg + sum[4]) / 100;
+          const cd = Math.min(9, Math.max(0, sum[7]));
+          const lo = Math.floor(cd),
+            hi = Math.ceil(cd);
+          const cdFactor =
+            scoreCdRatios[lo] +
+            (scoreCdRatios[hi] - scoreCdRatios[lo]) * (cd - lo);
+          const penalty = Math.max(0.5, 1 - (100 - base.level) * 0.05);
+          return (
+            magic *
+            (45 + sum[2] * 0.075) *
+            (1 + crit * (dmg - 1)) *
+            cdFactor *
+            penalty
+          );
+        }
+        function optSigned(n) {
+          return `${n >= 0 ? "+" : ""}${n.toFixed(1)}`;
+        }
+        function renderRowScores(actualScores = null) {
+          let base;
+          try {
+            base = baseState();
+          } catch (error) {
+            return;
+          }
+          const zero = Array(8).fill(0),
+            basePower = scorePower(base, zero);
+          crystals.forEach((crystal, i) => {
+            const el = opt(`optScore${i}`);
+            if (!el) return;
+            const v = crystalVector(crystal);
+            if (!vectorActive(v)) {
+              el.className = "opt-crystal-score";
+              el.textContent = "—";
+              return;
+            }
+            const raw = (scorePower(base, v) / basePower - 1) * 100 - 5;
+            const actual = actualScores?.get(i);
+            const colorScore = Number.isFinite(actual) ? actual : raw;
+            el.className = `opt-crystal-score ${finalScoreClass(colorScore)}`;
+            el.textContent = `${optSigned(raw)}（${Number.isFinite(actual) ? optSigned(actual) : "—"}）`;
+          });
         }
         function solverSource() {
           self.onmessage = ({ data }) => {
@@ -2729,15 +2894,37 @@
                 `<div class="opt-line"><b>#${id + 1}</b><span>戰力貢獻 ${Math.max(0, loss).toFixed(2)}%</span></div>`,
             )
             .join("");
+          const selected = new Set(bestIds),
+            actualScores = new Map();
+          crystals.forEach((crystal, id) => {
+            const v = crystalVector(crystal);
+            if (!vectorActive(v)) return;
+            const compareSum = s.slice();
+            if (selected.has(id)) {
+              for (let k = 0; k < 8; k++) compareSum[k] -= v[k];
+              const without = scorePower(base, compareSum);
+              actualScores.set(id, (best / without - 1) * 100 - 5);
+            } else {
+              for (let k = 0; k < 8; k++) compareSum[k] += v[k];
+              const withCrystal = scorePower(base, compareSum);
+              actualScores.set(id, (withCrystal / best - 1) * 100 - 5);
+            }
+          });
+          renderRowScores(actualScores);
           opt("optStatus").textContent = "";
         }
         renderRows();
         syncGear();
+        renderRowScores();
         opt("optRows").addEventListener("input", (event) => {
           const { i, j, k } = event.target.dataset;
           if (i === undefined) return;
-          crystals[Number(i)][Number(j)][k] =
-            k === "value" ? Number(event.target.value) : event.target.value;
+          if (k === "quality") {
+            qualities[Number(i)] = event.target.value;
+          } else {
+            crystals[Number(i)][Number(j)][k] =
+              k === "value" ? Number(event.target.value) : event.target.value;
+          }
           resetResult("資料已變更，請重新計算。");
         });
         ["optLevel", "optWeaponStar", "optRootStar"].forEach((id) =>
@@ -2756,6 +2943,7 @@
                 weaponStar: Number(opt("optWeaponStar").value),
                 rootStar: Number(opt("optRootStar").value),
                 crystals,
+                qualities,
               }),
             );
             opt("optStatus").textContent = "已儲存目前設定與24顆結晶。";
@@ -2765,7 +2953,10 @@
         };
         opt("optLoad").onclick = () => {
           try {
-            const data = JSON.parse(localStorage.getItem(storageKey));
+            const data = JSON.parse(
+              localStorage.getItem(storageKey) ||
+                localStorage.getItem(legacyStorageKey),
+            );
             if (!data) throw new Error("尚無儲存內容");
             opt("optLevel").value = String(data.level ?? 100);
             opt("optWeaponStar").value = String(data.weaponStar ?? 8);
@@ -2773,6 +2964,14 @@
             if (!Array.isArray(data.crystals) || data.crystals.length !== 24)
               throw new Error("儲存資料格式錯誤");
             crystals = data.crystals;
+            qualities =
+              Array.isArray(data.qualities) && data.qualities.length === 24
+                ? data.qualities.map((q) =>
+                    ["unique", "legendary"].includes(q)
+                      ? q
+                      : "legendary",
+                  )
+                : Array(24).fill("legendary");
             baseState();
             renderRows();
             syncGear();
@@ -2782,10 +2981,8 @@
           }
         };
         opt("optClear").onclick = () => {
-          crystals = Array.from({ length: 24 }, () => [
-            { type: "", value: 0 },
-            { type: "", value: 0 },
-          ]);
+          crystals = Array.from({ length: 24 }, () => blankCrystal());
+          qualities = Array(24).fill("legendary");
           renderRows();
           resetResult("已清除結晶與計算結果；儲存內容保留。");
         };
@@ -2816,11 +3013,17 @@
             crystals = imported.map((c) =>
               c.map((line) => ({ type: line.type, value: line.value })),
             );
+            const importedQualities = Array.isArray(data?.qualities)
+              ? data.qualities
+              : [];
+            qualities = imported.map((_, i) =>
+              ["unique", "legendary"].includes(importedQualities[i])
+                ? importedQualities[i]
+                : "legendary",
+            );
             while (crystals.length < 24)
-              crystals.push([
-                { type: "", value: 0 },
-                { type: "", value: 0 },
-              ]);
+              crystals.push(blankCrystal());
+            while (qualities.length < 24) qualities.push("legendary");
             renderRows();
             resetResult("已匯入結晶，請進行計算。");
           } catch (error) {
