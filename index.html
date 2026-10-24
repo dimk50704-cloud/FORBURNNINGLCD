@@ -2329,11 +2329,13 @@
         $("#finalMagic").textContent = fmt(full.magic);
         $("#finalMagicPct").textContent = `${full.magicPct.toFixed(0)}%`;
         $("#finalMastery").textContent = `${full.mastery.toFixed(0)}%`;
+        const overflow = Math.max(0, full.rawCrit - 100);
         $("#finalCrit").textContent =
-          `${full.rawCrit.toFixed(0)}%${full.rawCrit > 100 ? "（有效100%）" : ""}`;
+          overflow > 0
+            ? `100%（原始${full.rawCrit.toFixed(0)}%，溢出${overflow.toFixed(0)}%）`
+            : `${full.rawCrit.toFixed(0)}%`;
         $("#finalCritDmg").textContent = `${full.critDmg.toFixed(0)}%`;
         $("#finalCd").textContent = `-${full.cd.toFixed(0)}秒`;
-        const overflow = Math.max(0, full.rawCrit - 100);
         $("#finalOverflow").innerHTML =
           overflow > 0
             ? `爆擊機率溢出 <b>${overflow.toFixed(0)}%</b>；括號內爆率評分最高按 105% 計。`
@@ -2782,6 +2784,7 @@
             ];
             const penalty = Math.max(0.5, 1 - (100 - base.level) * 0.05);
             let best = -1,
+              bestOverflow = Infinity,
               bestIds = [],
               bestSum = Array(8).fill(0),
               ids = [],
@@ -2809,8 +2812,14 @@
             function walk(start, left) {
               if (!left) {
                 const power = evaluate();
-                if (power > best) {
+                const overflow = Math.max(0, base.crit + sum[3] - 100);
+                if (
+                  power > best + 1e-7 ||
+                  (Math.abs(power - best) <= 1e-7 &&
+                    overflow < bestOverflow)
+                ) {
                   best = power;
+                  bestOverflow = overflow;
                   bestIds = ids.slice();
                   bestSum = sum.slice();
                 }
@@ -2866,14 +2875,17 @@
           const totalMagic = Math.floor(
             (base.magic + s[0]) * (1 + s[1] / 100) + 1e-9,
           );
+          const rawCrit = base.crit + s[3],
+            effectiveCrit = Math.min(100, rawCrit),
+            critText =
+              rawCrit > 100
+                ? `${effectiveCrit}%（原始${rawCrit}%，溢出${rawCrit - 100}%）`
+                : `${rawCrit}%`;
           const stats = [
             ["魔法攻擊力", fmt(totalMagic)],
             ["魔力%", `${s[1]}%`],
             ["熟練度", `${s[2]}%`],
-            [
-              "爆擊機率",
-              `${base.crit + s[3]}%（有效${Math.min(100, base.crit + s[3])}%）`,
-            ],
+            ["爆擊機率", critText],
             ["爆擊傷害", `${base.dmg + s[4]}%`],
             ["冷卻時間減少", `−${s[7]}秒（有效−${Math.min(9, s[7])}秒）`],
             ["結晶最大HP", fmt(s[5])],
